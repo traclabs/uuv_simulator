@@ -300,9 +300,9 @@ bool DVLROSPlugin::UpdateBeamTransforms()
       beamTransform.getOrigin().z());
     pose.Rot() = ignition::math::Quaterniond(
       beamTransform.getRotation().getW(),
-      beamTransform.getRotation().getAxis().x(),
-      beamTransform.getRotation().getAxis().y(),
-      beamTransform.getRotation().getAxis().z());
+      beamTransform.getRotation().getX(),
+      beamTransform.getRotation().getY(),
+      beamTransform.getRotation().getZ());
 
     this->dvlBeamMsgs[i].pose = geometry_msgs::PoseStamped();
     this->dvlBeamMsgs[i].pose.header.stamp = ros::Time::now();
@@ -312,9 +312,9 @@ bool DVLROSPlugin::UpdateBeamTransforms()
     this->dvlBeamMsgs[i].pose.pose.position.y = beamTransform.getOrigin().y();
     this->dvlBeamMsgs[i].pose.pose.position.z = beamTransform.getOrigin().z();
 
-    this->dvlBeamMsgs[i].pose.pose.orientation.x = beamTransform.getRotation().getAxis().x();
-    this->dvlBeamMsgs[i].pose.pose.orientation.y = beamTransform.getRotation().getAxis().y();
-    this->dvlBeamMsgs[i].pose.pose.orientation.z = beamTransform.getRotation().getAxis().z();
+    this->dvlBeamMsgs[i].pose.pose.orientation.x = beamTransform.getRotation().getX();
+    this->dvlBeamMsgs[i].pose.pose.orientation.y = beamTransform.getRotation().getY();
+    this->dvlBeamMsgs[i].pose.pose.orientation.z = beamTransform.getRotation().getZ();
     this->dvlBeamMsgs[i].pose.pose.orientation.w = beamTransform.getRotation().getW();
 
     this->beamPoses.push_back(pose);
