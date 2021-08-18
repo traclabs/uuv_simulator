@@ -318,7 +318,7 @@ void UnderwaterObjectROSPlugin::PublishHydrodynamicWrenches(
   gazebo::physics::LinkPtr _link)
 {
   // Call base class method
-  UnderwaterObjectPlugin::PublishRestoringForce(_link);
+  UnderwaterObjectPlugin::PublishHydrodynamicWrenches(_link);
 
   // Publish data in a ROS topic
   if (this->models.count(_link))
