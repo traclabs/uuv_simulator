@@ -34,9 +34,6 @@ UnderwaterObjectROSPlugin::~UnderwaterObjectROSPlugin()
 }
 
 /////////////////////////////////////////////////
-
-
-
 void UnderwaterObjectROSPlugin::Load(gazebo::physics::ModelPtr _parent,
                              sdf::ElementPtr _sdf)
 {
@@ -203,13 +200,6 @@ void UnderwaterObjectROSPlugin::Reset()
 { }
 
 /////////////////////////////////////////////////
-// void UnderwaterObjectROSPlugin::Update(const gazebo::common::UpdateInfo &_info)
-// {
-//   UnderwaterObjectPlugin::Update(_info);
-//
-//   this->nedTransform.header.stamp = ros::Time::now();
-//   this->tfBroadcaster.sendTransform(this->nedTransform);
-// }
 void UnderwaterObjectROSPlugin::Update(const gazebo::common::UpdateInfo &_info)
 {
   UnderwaterObjectPlugin::Update(_info);
@@ -219,7 +209,6 @@ void UnderwaterObjectROSPlugin::Update(const gazebo::common::UpdateInfo &_info)
     this->tfBroadcaster.sendTransform(this->nedTransform);
   }
 }
-
 
 /////////////////////////////////////////////////
 void UnderwaterObjectROSPlugin::InitDebug(gazebo::physics::LinkPtr _link,
